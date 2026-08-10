@@ -1,16 +1,24 @@
 import asyncio
 
 from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
 from aiogram.types import Message
 
 bot = Bot(token='8990916092:AAHAZPr9s4kc-BmUCDVV-DsfLDVYAxX5FTo')
 dp = Dispatcher()
-@dp.message()
+# @dp.message()
+# async def message_handler(message: Message):
+#     if message.chat.id == 777000:
+#         await message.reply(
+#             text = "test"
+#         )
+
+@dp.message(Command("start"))
 async def message_handler(message: Message):
-    if message.chat.id == 777000:
-        await message.reply(
-            text = "test"
-        )
+    await message.reply(
+        text="test"
+    )
+
 
 async def main():
     await dp.start_polling(bot)

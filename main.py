@@ -6,18 +6,12 @@ from aiogram.types import Message
 
 bot = Bot(token='8990916092:AAHAZPr9s4kc-BmUCDVV-DsfLDVYAxX5FTo')
 dp = Dispatcher()
-# @dp.message()
-# async def message_handler(message: Message):
-#     if message.chat.id == 777000:
-#         await message.reply(
-#             text = "test"
-#         )
-
-@dp.message(Command("start"))
+@dp.message()
 async def message_handler(message: Message):
-    await message.reply(
-        text="test"
-    )
+    if message.chat.id == 777000:
+        await message.reply(
+            text = "test"
+        )
 
 
 async def main():
